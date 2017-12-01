@@ -5,6 +5,8 @@ const path=require('path');
 const fs=require('fs');
 const hbs=require('hbs');
 
+const port = process.env.PORT || 3000;
+
 app.set('view engine','hbs');
 hbs.registerPartials(__dirname+'/views/partials');
 app.use(express.static(path.join(__dirname,'public')));
@@ -40,6 +42,6 @@ app.get('/bad',router.badHandler);
 app.get('/about',router.aboutpage);
 
 
-app.listen(3000,()=>{
-    console.log('The server is listening on port 3000:');
+app.listen(port,()=>{
+    console.log(`The server is listening on port ${port}:`);
 });
